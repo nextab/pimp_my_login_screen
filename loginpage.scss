@@ -1,0 +1,206 @@
+/* Font-Setup */
+@font-face {
+	font-family: 'Nunito Sans';
+	src:	url('../fonts/NunitoSans-Bold.eot');
+	src:	url('../fonts/NunitoSans-Bold.eot?#iefix') format('embedded-opentype'),
+			url('../fonts/NunitoSans-Bold.woff2') format('woff2'),
+			url('../fonts/NunitoSans-Bold.woff') format('woff'),
+			url('../fonts/NunitoSans-Bold.svg#NunitoSans-Bold') format('svg');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Nunito Sans';
+	src: url('../fonts/NunitoSans-Regular.eot');
+	src: url('../fonts/NunitoSans-Regular.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/NunitoSans-Regular.woff2') format('woff2'),
+	url('../fonts/NunitoSans-Regular.woff') format('woff'),
+	url('../fonts/NunitoSans-Regular.svg#NunitoSans-Regular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+$Avenir: 'Nunito Sans';
+
+/* Variables */
+$highlight: #6200FF;
+$white: #fff;
+$grey: #333;
+
+/* Button Variants */
+%button-underline {
+	position: relative;
+	&::after { 
+		border-bottom: 2px solid $highlight;
+		bottom: -3px;
+		content: "";
+		left: 0;
+		position: absolute;
+		transition: all 300ms ease;
+		width: 100%;
+	}
+	&:hover::after {
+		border: none;
+	}
+}
+
+html { height: auto !important; }
+body.login {
+	// background-attachment: fixed;
+	background-image: url("../img/login-hintergrund@2x.jpg");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	display: flex;
+	flex-flow: column nowrap;
+	height: auto !important;
+	min-height: 100vh;
+	justify-content: space-between;
+	#login {
+		max-width: 375px;
+		padding: 8% 0 80px;
+		width: 90%;
+		> h1 a {
+			background-image: url("../img/logo-jobstyle.svg");
+			height: 82.5px;
+			margin-bottom: 60px;
+			overflow: visible;
+			padding-bottom: 10px;
+			position: relative;
+			width: 110px;
+			&::after {
+				bottom: -15px;
+				color: #fff;
+				content: "Online-Kurse";
+				display: block;
+				font-family: $Avenir;
+				font-size: 21px;
+				font-weight: 700;
+				height: 40px;
+				left: 50%;
+				letter-spacing: 0.5px;
+				position: absolute;
+				text-align: center;
+				text-indent: 0;
+				transform: translatex(0%) translatex(-50%);
+				width: 140px;
+			}
+		}
+		form {
+			background: transparent;
+			border: none;
+			box-shadow: none;
+			padding: 0 0 30px;
+			label {
+				color: $white;
+				font-family: $Avenir;
+				font-size: 18px;
+				font-weight: 700;
+			}
+			input[type="text"], input[type="password"] {
+				background: transparent;
+				border: 1px solid $highlight;
+				border-radius: 0;
+				color: $white;
+				font-size: 21px;
+				letter-spacing: 0.5px;
+			}
+			input[type="checkbox"] {
+				background: transparent;
+				border-radius: 0;
+				border: 1px solid $highlight;
+				color: $white;
+				height: 18px;
+				width: 18px;
+			}
+			p.forgetmenot {
+				float: none;
+				margin-top: 5px;
+				label {
+					font-size: 18px;
+					font-weight: 400;
+					vertical-align: -1px;
+				}
+			}
+			p.submit {
+				margin-top: 30px;
+				text-align: center;
+				input[type="submit"] {
+					background: $highlight;
+					border-radius: 26px;
+					border: none;
+					color: $white;
+					cursor: pointer;
+					display: inline-block;
+					float: none;
+					font-family: $Avenir;
+					font-size: 18px;
+					font-weight: 700;
+					line-height: 1.8em;
+					padding: .65em 1.8em !important;
+				}
+			}
+			.dashicons-visibility::before { color: $white; }
+		}
+		p#nav {
+			margin-top: 20px;
+			padding: 0;
+			text-align: center;
+			a {
+				@extend %button-underline;
+				color: $white;
+				font-family: $Avenir;
+				font-size: 18px;
+				font-weight: 700;
+			}
+		}
+		p#backtoblog, div.privacy-policy-page-link { display: none; }
+	}
+	footer.nxt-login-footer {
+		background: $white;
+		transform: translatey(0%) translatey(100%);
+		width: 100%;
+		.nxt-login-footer-menu {
+			display: block;
+			margin: 20px auto;
+			ul {
+				display: flex;
+				flex-flow: row wrap;
+				justify-content: center;
+				list-style: none;
+				li {
+					padding-left: 3%;
+					padding-right: 3%;
+					a {
+						color: $grey;
+						font-family: $Avenir;
+						font-size: 18px;
+						text-decoration: none;
+					}
+				}
+			}
+		}
+	}
+	#login_error, .message, .success {
+		background-color: transparent;
+		border: 3px solid $highlight;
+		box-shadow: none;
+		color: $white;
+		font-family: $Avenir;
+		font-size: 18px;
+		font-weight: 700;
+		margin: 0 auto 30px;
+		padding: 15px 20px;
+	}
+	div.clear { display: none; }
+}
+@media only screen and ( max-width: 400px ) { 
+	body.login { 
+		footer.nxt-login-footer {
+			.nxt-login-footer-menu ul li {
+				padding-bottom: 7px;
+				text-align: center;
+				width: 94%;
+			}
+		}
+	}
+}
